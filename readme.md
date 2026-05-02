@@ -1,3 +1,9 @@
+# Clone Repo
+```
+git clone https://www.github.com/maaz-319/api_rate_limit_quota_db
+cd api_rate_limit_quota_db
+```
+
 # Create Database and Collections
 ```
 mongosh "mongodb://localhost:27017/api_quota_db" schema/developers.js schema/quota_plans.js schema/api_keys.js schema/usage_bucket.js schema/overage_events.js schema/audit_logs.js
