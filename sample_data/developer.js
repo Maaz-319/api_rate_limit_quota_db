@@ -1,0 +1,30 @@
+// ============================================================
+// DEVELOPERS - 25 developers with varied statuses & orgs
+// ============================================================
+db.developers.insertMany([
+    { name: "Aarav Sharma",    email: "aarav.sharma@nimbusforge.io",  organization: "NimbusForge",         status: "active",      createdAt: new Date("2024-02-14T09:21:00Z") },
+    { name: "Priya Iyer",      email: "priya@quantleaf.com",          organization: "QuantLeaf Analytics", status: "active",      createdAt: new Date("2024-03-02T11:45:00Z") },
+    { name: "Rohan Mehta",     email: "rohan.mehta@gmail.com",        organization: "Indie",               status: "active",      createdAt: new Date("2024-04-18T07:30:00Z") },
+    { name: "Sara Khan",       email: "sara.k@helioscloud.dev",       organization: "Helios Cloud",        status: "active",      createdAt: new Date("2024-05-09T14:12:00Z") },
+    { name: "Daniel O'Brien",  email: "dan.obrien@orbitstack.co",     organization: "OrbitStack",          status: "active",      createdAt: new Date("2024-06-21T08:55:00Z") },
+    { name: "Mei Lin Chen",    email: "meilin.chen@pagodatech.cn",    organization: "Pagoda Tech",         status: "active",      createdAt: new Date("2024-07-03T10:00:00Z") },
+    { name: "Lucas Mueller",   email: "lucas.mueller@brandt-ag.de",   organization: "Brandt AG",           status: "active",      createdAt: new Date("2024-07-29T13:40:00Z") },
+    { name: "Olivia Bennett",  email: "olivia@bennett.dev",           organization: "Indie",               status: "pending",     createdAt: new Date("2025-11-04T06:18:00Z") },
+    { name: "Ahmed Al-Farsi",  email: "ahmed.alfarsi@dunesoft.ae",    organization: "DuneSoft",            status: "active",      createdAt: new Date("2024-09-15T09:00:00Z") },
+    { name: "Isabela Costa",   email: "isabela@verdecode.br",         organization: "VerdeCode",           status: "active",      createdAt: new Date("2024-10-22T15:25:00Z") },
+    { name: "Tomas Rivera",    email: "tomas.rivera@hotmail.com",     organization: "Indie",               status: "suspended",   createdAt: new Date("2024-11-11T12:00:00Z") },
+    { name: "Hannah Weiss",    email: "hannah.weiss@ironvault.io",    organization: "IronVault Security",  status: "active",      createdAt: new Date("2024-12-01T08:30:00Z") },
+    { name: "Kenji Yamamoto",  email: "kenji.y@sakuralabs.jp",        organization: "Sakura Labs",         status: "active",      createdAt: new Date("2025-01-19T07:45:00Z") },
+    { name: "Fatima Zahra",    email: "fatima.zahra@atlasmena.ma",    organization: "Atlas MENA",          status: "active",      createdAt: new Date("2025-02-08T11:10:00Z") },
+    { name: "Noah Anderson",   email: "noah.anderson@gmail.com",      organization: "Indie",               status: "deactivated", createdAt: new Date("2024-08-14T10:00:00Z") },
+    { name: "Eva Novak",       email: "eva@novak-systems.cz",         organization: "Novak Systems",       status: "active",      createdAt: new Date("2025-03-12T09:00:00Z") },
+    { name: "Marcus Reed",     email: "m.reed@stellardata.us",        organization: "Stellar Data Corp",   status: "active",      createdAt: new Date("2025-04-05T14:30:00Z") },
+    { name: "Anya Volkov",     email: "anya.volkov@kremlinapps.ru",   organization: "Kremlin Apps",        status: "suspended",   createdAt: new Date("2025-05-20T13:00:00Z") },
+    { name: "Liam Walsh",      email: "liam.walsh@celticforge.ie",    organization: "CelticForge",         status: "active",      createdAt: new Date("2025-06-11T08:00:00Z") },
+    { name: "Chioma Okafor",   email: "chioma@bayoutech.ng",          organization: "Bayou Tech Lagos",    status: "active",      createdAt: new Date("2025-07-22T10:45:00Z") },
+    { name: "Sven Larsson",    email: "sven@nordlys.se",              organization: "Nordlys AB",          status: "active",      createdAt: new Date("2025-08-30T07:20:00Z") },
+    { name: "Beatriz Alvarez", email: "beatriz.a@solmadrid.es",       organization: "Sol Madrid",          status: "pending",     createdAt: new Date("2026-01-12T09:10:00Z") },
+    { name: "Yusuf Demir",     email: "yusuf.demir@bosphorlabs.tr",   organization: "Bosphor Labs",        status: "active",      createdAt: new Date("2025-09-18T11:30:00Z") },
+    { name: "Grace Thompson",  email: "grace.t@maplebridge.ca",       organization: "MapleBridge",         status: "active",      createdAt: new Date("2025-10-25T12:00:00Z") },
+    { name: "Vikram Reddy",    email: "vikram.reddy@protonmail.com",  organization: "Indie",               status: "active",      createdAt: new Date("2025-12-14T16:00:00Z") }
+]);
