@@ -4,7 +4,7 @@
 const todayStart = new Date();
 todayStart.setUTCHours(0, 0, 0, 0);
 
-db.usage_buckets.aggregate([
+const res1 = db.usage_buckets.aggregate([
     { $match: { periodType: "day", periodStart: todayStart } },
     {
         $lookup: {
@@ -71,7 +71,7 @@ db.usage_buckets.aggregate([
 // AGGREGATION 2
 // Simple active plan summary.
 
-db.api_keys.aggregate([
+const res2 = db.api_keys.aggregate([
     { $match: { active: true } },
     {
         $group: {
@@ -103,3 +103,4 @@ db.api_keys.aggregate([
     },
     { $sort: { activeKeyCount: -1 } }
 ]);
+console.log("Simple active plan summary:", res2);

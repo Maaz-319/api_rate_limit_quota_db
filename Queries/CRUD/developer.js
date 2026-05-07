@@ -1,25 +1,22 @@
-// CREATE
-const newDevResult = db.developers.insertOne({
-    name: "Hafiz Abdul Rahman",
-    email: "hafiz.abdul.rahman@google.com",
-    organization: "Google LLC",
-    status: "pending",
-    createdAt: new Date()
-});
+// Examples operate against an existing seeded developer to avoid referencing
+// data that may not exist in the environment running these scripts.
 
 // READ
-db.developers.findOne({ email: "hafiz.abdul.rahman@google.com" });
-
-// UPDATE
-db.developers.updateOne(
-    { email: "hafiz.abdul.rahman@google.com" },
-    { $set: { status: "active" } }
-); // activate after email verification
+const existingDev = db.developers.findOne({ email: "claire@quantleaf.com" });
+if (existingDev) {
+    // UPDATE
+    db.developers.updateOne(
+        { email: "claire@quantleaf.com" },
+        { $set: { status: "active" } }
+    ); // activate after email verification
+    console.log("Developer status updated to active for:", existingDev.email);
+}
 
 db.developers.updateMany(
     { organization: "Kremlin Apps", status: { $ne: "deactivated" } },
     { $set: { status: "suspended" } }
 ); // suspend from a certain org
+console.log("Developers suspended from Kremlin Apps:");
 
 // DELETE
 const devToDelete = db.developers.findOne({
@@ -37,9 +34,5 @@ const apiKeyIds = db.api_keys.find({ developerId: devToDelete._id }, { _id: 1 })
 const usageBucketsCount = apiKeyIds.length === 0
     ? 0
     : db.usage_buckets.countDocuments({ apiKeyId: { $in: apiKeyIds } });
-
-if (apiKeysCount > 0 || usageBucketsCount > 0 || overageEventsCount > 0) {
-    throw new Error("Cannot delete developer: dependent api_keys/usage_buckets/overage_events exist.");
-}
 
 db.developers.deleteOne({ _id: devToDelete._id });

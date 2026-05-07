@@ -1,6 +1,6 @@
 // Run all sample data files in correct order
 
-console.log(" Loading sample data...\n");
+console.log("Loading sample data...\n");
 
 // 1. Seed developers first (other collections depend on this)
 console.log("1. Seeding developers...");
@@ -35,10 +35,10 @@ const counts = {
     overage_events: db.overage_events.countDocuments(),
     audit_logs: db.audit_logs.countDocuments()
 };
-console.log(" Data counts:");
-console.log(`   • developers: ${counts.developers}`);
-console.log(`   • quota_plans: ${counts.quota_plans}`);
-console.log(`   • api_keys: ${counts.api_keys}`);
-console.log(`   • usage_buckets: ${counts.usage_buckets}`);
-console.log(`   • overage_events: ${counts.overage_events}`);
-console.log(`   • audit_logs: ${counts.audit_logs}\n`);
+console.log("Data counts:");
+console.log(`   - developers: ${counts.developers}`);
+console.log(`   - quota_plans: ${counts.quota_plans}`);
+console.log(`   - api_keys: ${counts.api_keys}`);
+console.log(`   - usage_buckets: ${counts.usage_buckets}`);
+console.log(`   - overage_events: ${counts.overage_events}`);
+console.log(`   - audit_logs: ${counts.audit_logs}\n`);

@@ -1,5 +1,6 @@
 // FIND
-db.quota_plans.find({ active: true }).toArray();
+const res = db.quota_plans.find({ active: true }).toArray();
+console.log("Active quota plans:", res);
 
 // UPDATE
 db.quota_plans.updateOne(
@@ -9,14 +10,8 @@ db.quota_plans.updateOne(
 
 // DELETE
 const planToDelete = db.quota_plans.findOne({ name: "Free" });
-
-if (!planToDelete) {
-    throw new Error("Delete skipped: quota plan not found.");
-}
-
 const referencedByApiKeys = db.api_keys.countDocuments({ planId: planToDelete._id }) > 0;
-if (referencedByApiKeys) {
-    throw new Error("Cannot delete quota plan: dependent api_keys exist.");
-}
 
-db.quota_plans.deleteOne({ _id: planToDelete._id });
+if (planToDelete && !referencedByApiKeys) {
+    db.quota_plans.deleteOne({ _id: planToDelete._id });
+}

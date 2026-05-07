@@ -1,5 +1,5 @@
 // CREATE
-const targetDev = db.developers.findOne({ email: "hafiz.abdul.rahman@google.com" });
+const targetDev = db.developers.findOne({ email: "claire@quantleaf.com" });
 const basicPlan = db.quota_plans.findOne({ name: "Basic" });
 
 if (!targetDev) {
@@ -18,9 +18,12 @@ db.api_keys.insertOne({
     revokedAt: null
 });
 
+console.log("New API key created for developer:", targetDev.email);
+
 // READ
-const hafiz = db.developers.findOne({ email: "hafiz.abdul.rahman@google.com" });
-db.api_keys.find({ developerId: hafiz._id, active: true }).toArray();
+const claire = db.developers.findOne({ email: "claire@quantleaf.com" });
+const res = db.api_keys.find({ developerId: claire._id, active: true }).toArray();
+console.log("Active API keys for Claire:", res);
 
 // UPDATE
 db.api_keys.updateOne(

@@ -21,12 +21,15 @@ db.overage_events.insertOne({
     note: "Real-time rate limit triggered by middleware."
 });
 
+console.log("New overage event created for API key:", abusingKey.keyHash);
+
 // READ
 const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-db.overage_events.find(
+const res = db.overage_events.find(
     { time: { $gte: sevenDaysAgo } },
     { _id: 0, apiKeyId: 1, limitType: 1, observed: 1, allowed: 1, actionTaken: 1, time: 1 }
 ).toArray();
+console.log("Overage events from the last 7 days:", res);
 
 // DELETE
 const ninetyDaysAgo = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
