@@ -17,11 +17,6 @@ api_keys: {
   keyHash,
   planId,
   active,
-  quotaRules: {
-    requestsPerMinute,
-    requestsPerDay,
-    burstLimit
-  },
   createdAt,
   revokedAt
 }
@@ -45,7 +40,6 @@ quota_plans: {
 usage_buckets: {
   _id,
   apiKeyId,
-  developerId,
   periodType,      // minute, hour, day
   periodStart,
   requestCount,

@@ -2,7 +2,7 @@ db.createCollection("api_keys", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["developerId", "keyHash", "planId", "active", "quotaRules", "createdAt"],
+            required: ["developerId", "keyHash", "planId", "active", "createdAt"],
             properties: {
                 developerId: {
                     bsonType: "objectId",
@@ -19,28 +19,6 @@ db.createCollection("api_keys", {
                 active: {
                     bsonType: "bool",
                     description: "Active flag is required"
-                },
-                quotaRules: {
-                    bsonType: "object",
-                    required: ["requestsPerMinute", "requestsPerDay", "burstLimit"],
-                    properties: {
-                        requestsPerMinute: {
-                            bsonType: "int",
-                            minimum: 1,
-                            description: "Requests per minute must be a positive integer"
-                        },
-                        requestsPerDay: {
-                            bsonType: "int",
-                            minimum: 1,
-                            description: "Requests per day must be a positive integer"
-                        },
-                        burstLimit: {
-                            bsonType: "int",
-                            minimum: 0,
-                            description: "Burst limit must be a non-negative integer"
-                        }
-                    },
-                    description: "Quota rules are required"
                 },
                 createdAt: {
                     bsonType: "date",

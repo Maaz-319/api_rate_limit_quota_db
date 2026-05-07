@@ -2,15 +2,11 @@ db.createCollection("usage_buckets", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["apiKeyId", "developerId", "periodType", "periodStart", "requestCount", "lastUpdatedAt"],
+            required: ["apiKeyId", "periodType", "periodStart", "requestCount", "lastUpdatedAt"],
             properties: {
                 apiKeyId: {
                     bsonType: "objectId",
                     description: "Reference to the API key is required and must be an ObjectId"
-                },
-                developerId: {
-                    bsonType: "objectId",
-                    description: "Reference to the developer is required and must be an ObjectId"
                 },
                 periodType: {
                     bsonType: "string",
