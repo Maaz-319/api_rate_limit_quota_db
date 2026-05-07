@@ -6,8 +6,6 @@ console.log("=".repeat(70));
 console.log("CRUD OPERATIONS");
 console.log("=".repeat(70));
 
-// Pre-check: ensure minimal dependencies exist so CRUD examples can run standalone.
-// If the workspace user runs this file without seeding sample data, load minimal seed files.
 if (db.developers.countDocuments() === 0) {
 	console.log("Developers collection is empty — seeding developers from sample_data/developers.js...");
 	load("sample_data/developers.js");
@@ -16,14 +14,10 @@ if (db.quota_plans.countDocuments() === 0) {
 	console.log("Quota plans collection is empty — seeding quota_plans from sample_data/quota_plans.js...");
 	load("sample_data/quota_plans.js");
 }
-
-
-// Load CRUD operations in order that avoids deleting developers before dependents
-// Execute CRUD operations in a safe order for deletions:
-// 1) usage_buckets & overage_events (depend on api_keys)
-// 2) api_keys (depend on quota_plans)
-// 3) quota_plans
-// 4) developers (run last)
+if (db.api_keys.countDocuments() === 0) {
+	console.log("API keys collection is empty — seeding api_keys from sample_data/api_keys.js...");
+	load("sample_data/api_keys.js");
+}
 
 // 1. Usage Bucket CRUD operations
 console.log("\n1. Usage Bucket CRUD operations...");
